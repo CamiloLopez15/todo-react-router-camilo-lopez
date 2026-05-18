@@ -80,6 +80,17 @@
     margin: 0 0 1.5rem;
 }
 
+/* Animations */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideOut {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(12px); }
+}
+
 /* List */
 .todo-list {
     list-style: none;
@@ -99,6 +110,12 @@
     border-left: 3px solid #aa3bff;
     border-radius: 8px;
     background: #fff;
+    animation: slideIn 0.25s ease;
+}
+
+.todo-item.removing {
+    animation: slideOut 0.25s ease forwards;
+    pointer-events: none;
 }
 
 .todo-item.done {

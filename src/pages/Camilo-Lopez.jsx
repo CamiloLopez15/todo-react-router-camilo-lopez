@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react'
 import './Camilo-Lopez.css'
 
-const TodoItem = ({ todo, editId, editText, setEditText, saveEdit, cancelEdit, toggle, startEdit, remove }) => (
-    <li key={todo.id} className={`todo-item${todo.completed ? ' done' : ''}`}>
+const TodoItem = ({ todo, removingIds, editId, editText, setEditText, saveEdit, cancelEdit, toggle, startEdit, remove }) => (
+    <li key={todo.id} className={`todo-item${todo.completed ? ' done' : ''}${removingIds.has(todo.id) ? ' removing' : ''}`}>
         <input
             type="checkbox"
             className="todo-checkbox"
@@ -44,9 +44,10 @@ const Todo = () => {
         { id: 1, text: 'Aprender React Router', completed: true  },
         { id: 2, text: 'Crear un CRUD con estado local', completed: false },
     ])
-    const [input,    setInput]    = useState('')
-    const [editId,   setEditId]   = useState(null)
-    const [editText, setEditText] = useState('')
+    const [input,       setInput]       = useState('')
+    const [editId,      setEditId]      = useState(null)
+    const [editText,    setEditText]    = useState('')
+    const [removingIds, setRemovingIds] = useState(new Set())
     const inputRef = useRef(null)
 
     const pending   = todos.filter(t => !t.completed)
@@ -64,8 +65,13 @@ const Todo = () => {
     const toggle = (id) =>
         setTodos(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t))
 
-    const remove = (id) =>
-        setTodos(prev => prev.filter(t => t.id !== id))
+    const remove = (id) => {
+        setRemovingIds(prev => new Set([...prev, id]))
+        setTimeout(() => {
+            setTodos(prev => prev.filter(t => t.id !== id))
+            setRemovingIds(prev => { const s = new Set(prev); s.delete(id); return s })
+        }, 260)
+    }
 
     const startEdit = (todo) => { setEditId(todo.id); setEditText(todo.text) }
 
@@ -78,7 +84,7 @@ const Todo = () => {
 
     const cancelEdit = () => setEditId(null)
 
-    const itemProps = { editId, editText, setEditText, saveEdit, cancelEdit, toggle, startEdit, remove }
+    const itemProps = { removingIds, editId, editText, setEditText, saveEdit, cancelEdit, toggle, startEdit, remove }
 
     return (
         <div className="todo-page">
