@@ -132,6 +132,15 @@
     padding: 1px 0;
 }
 
+/* Checkbox delete */
+.todo-checkbox {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #ef4444;
+    flex-shrink: 0;
+}
+
 /* Actions */
 .todo-actions {
     display: flex;

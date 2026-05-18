@@ -3,6 +3,12 @@ import './Camilo-Lopez.css'
 
 const TodoItem = ({ todo, editId, editText, setEditText, saveEdit, cancelEdit, toggle, startEdit, remove }) => (
     <li key={todo.id} className={`todo-item${todo.completed ? ' done' : ''}`}>
+        <input
+            type="checkbox"
+            className="todo-checkbox"
+            title="Eliminar tarea"
+            onChange={() => remove(todo.id)}
+        />
         {editId === todo.id ? (
             <input
                 className="todo-edit-input"
