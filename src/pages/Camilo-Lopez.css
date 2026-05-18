@@ -12,7 +12,7 @@
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: -0.04em;
-    color: #08060d;
+    color: #f0eeff;
     margin: 0 0 1.5rem;
 }
 
@@ -26,10 +26,10 @@
 .todo-input {
     flex: 1;
     padding: 0.6rem 0.9rem;
-    border: 1.5px solid #e5e4e7;
+    border: 1.5px solid #2e2a38;
     border-radius: 8px;
-    background: #fff;
-    color: #08060d;
+    background: #1a1725;
+    color: #e8e3f5;
     font-family: "DM Sans", sans-serif;
     font-size: 0.93rem;
     outline: none;
@@ -41,7 +41,6 @@
 }
 .todo-input::placeholder {
     color: #6b6375;
-    opacity: 0.5;
 }
 
 .todo-add-btn {
@@ -76,7 +75,7 @@
     font-family: "DM Sans", sans-serif;
     font-size: 0.88rem;
     color: #6b6375;
-    opacity: 0.55;
+    opacity: 0.7;
     margin: 0 0 1.5rem;
 }
 
@@ -106,10 +105,10 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.65rem 0.9rem;
-    border: 1.5px solid #e5e4e7;
+    border: 1.5px solid #2e2a38;
     border-left: 3px solid #aa3bff;
     border-radius: 8px;
-    background: #fff;
+    background: #1a1725;
     animation: slideIn 0.25s ease;
 }
 
@@ -119,7 +118,7 @@
 }
 
 .todo-item.done {
-    opacity: 0.55;
+    opacity: 0.5;
     border-left-color: #22c55e;
 }
 
@@ -132,7 +131,7 @@
     flex: 1;
     font-family: "DM Sans", sans-serif;
     font-size: 0.93rem;
-    color: #08060d;
+    color: #e8e3f5;
     word-break: break-word;
 }
 
@@ -145,7 +144,7 @@
     outline: none;
     font-family: "DM Sans", sans-serif;
     font-size: 0.93rem;
-    color: #08060d;
+    color: #e8e3f5;
     padding: 1px 0;
 }
 
@@ -168,12 +167,13 @@
 .todo-action {
     padding: 3px 9px;
     border-radius: 5px;
-    border: 1px solid #e5e4e7;
+    border: 1px solid #2e2a38;
     background: transparent;
     cursor: pointer;
     font-family: "DM Sans", sans-serif;
     font-size: 0.75rem;
-    color: #6b6375;
+    color: #8a8299;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .todo-action.complete:hover {
@@ -182,7 +182,7 @@
     border-color: #22c55e;
 }
 .todo-action.edit:hover {
-    background: rgba(170, 59, 255, 0.1);
+    background: rgba(170, 59, 255, 0.12);
     color: #aa3bff;
     border-color: rgba(170, 59, 255, 0.5);
 }
