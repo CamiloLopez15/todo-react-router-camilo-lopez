@@ -6,8 +6,9 @@ const TodoItem = ({ todo, removingIds, editId, editText, setEditText, saveEdit, 
         <input
             type="checkbox"
             className="todo-checkbox"
-            title="Eliminar tarea"
-            onChange={() => remove(todo.id)}
+            title="Marcar como completada"
+            checked={todo.completed}
+            onChange={() => toggle(todo.id)}
         />
         {editId === todo.id ? (
             <input
