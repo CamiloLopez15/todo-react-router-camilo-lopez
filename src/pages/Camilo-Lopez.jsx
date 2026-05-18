@@ -88,7 +88,7 @@ const Todo = () => {
                     onChange={e => setInput(e.target.value)}
                     maxLength={120}
                 />
-                <button className="todo-add-btn" type="submit">Agregar</button>
+                <button className="todo-add-btn" type="submit">Guardar</button>
             </form>
 
             <section>
